@@ -53,6 +53,7 @@ coverage.xml
 
 #config file
 config.js
+
 # Translations
 *.mo
 *.pot
