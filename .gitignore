@@ -51,6 +51,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+#config file
+config.js
 # Translations
 *.mo
 *.pot
