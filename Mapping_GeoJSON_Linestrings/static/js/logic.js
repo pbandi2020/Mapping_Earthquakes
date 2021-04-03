@@ -33,22 +33,40 @@ L.control.layers(baseMaps).addTo(map);
 
 
 //Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/pbandi2020/Mapping_Earthquakes/Mapping_GeoJSON_Points/Mapping_GeoJSON_Points/majorAirports.json";
+let torontoData = "https://raw.githubusercontent.com/pbandi2020/Mapping_Earthquakes/Mapping_GeoJSON_Linestrings/Mapping_GeoJSON_Linestrings/torontoRoutes.json";
+
+// Create a style for the lines.
+let myStyle = {
+    color: "#ffffa1",
+    weight: 2
+}
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
+d3.json(torontoData).then(function(data) {
     console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
-    onEachFeature: function(feature,layer){
-        console.log(layer);
-        console.log(feature.properties.faa);
-        console.log(feature.properties.name);
-        layer.bindPopup("<h3>Airport code: "+feature.properties.faa+"</h3><hr/><h3>Airport name:"+feature.properties.name+"</h3>");
-        }
-    }
-        ).addTo(map);
+      style: myStyle,
+      onEachFeature: function(feature,layer){
+        layer.bindPopup("<h3>Airport Line: "+feature.properties.airline+"</h3><hr/><h3>Airport name:"+feature.properties.dst+"</h3>");  
+      }
+  }
+    )
+  .addTo(map);
 });
+// d3.json(torontoData).then(function(data) {
+//     console.log(data);
+//   // Creating a GeoJSON layer with the retrieved data.
+//   L.geoJson(data, {
+//     onEachFeature: function(feature,layer){
+//         console.log(layer);
+//         console.log(feature.properties.faa);
+//         console.log(feature.properties.name);
+//         layer.bindPopup("<h3>Airport code: "+feature.properties.faa+"</h3><hr/><h3>Airport name:"+feature.properties.name+"</h3>");
+//         }
+//     }
+//         ).addTo(map);
+// });
 
 
 
