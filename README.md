@@ -8,5 +8,8 @@ The earthquake data is represented on the maps in relation to the tectonic plate
 2. Marker and tectonics with customized style
 3. Every map layer uses diffrent data layer to show the 7 day earthquake magnituded
 
+## Link to the published website
+https://pbandi2020.github.io/Earthquake_Challenge/
+
 ## Summary
 Using Mapbox API we were able to build a interactive map using JavaScript and D3 data library
